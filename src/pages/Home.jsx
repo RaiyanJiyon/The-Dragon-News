@@ -1,6 +1,8 @@
 import Navbar from "../components/Navbar";
 import Header from "../components/shared/Header"
 import Marquee from "react-fast-marquee";
+import LeftSidebar from "../components/shared/sidebar/LeftSidebar";
+import RightSidebar from "../components/shared/sidebar/RightSidebar";
 
 const Home = () => {
     return (
@@ -18,6 +20,18 @@ const Home = () => {
 
             {/* Navbar section */}
             <Navbar />
+
+            {/* sidebar section */}
+
+            <div className="grid md:grid-cols-4 gap-6">
+                <div className="col-span-1">
+                    <LeftSidebar />
+                </div>
+                <div className="col-span-2"></div>
+                <div className="col-span-1">
+                    <RightSidebar />
+                </div>
+            </div>
 
 
         </div>
