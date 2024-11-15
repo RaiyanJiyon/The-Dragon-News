@@ -1,9 +1,11 @@
+import Navbar from "../components/Navbar";
 import Header from "../components/shared/Header"
 import Marquee from "react-fast-marquee";
 
 const Home = () => {
     return (
         <div className="w-11/12 mx-auto">
+            {/* Header section */}
             <Header />
 
             {/* React Fast Marquee section */}
@@ -13,6 +15,11 @@ const Home = () => {
                     Match Highlights: Germany vs Spain — as it happened   !   Match Highlights: Germany vs Spain as...
                 </Marquee>
             </div>
+
+            {/* Navbar section */}
+            <Navbar />
+
+
         </div>
     );
 };
