@@ -23,7 +23,7 @@ const Home = () => {
 
             {/* sidebar section */}
 
-            <div className="grid md:grid-cols-4 gap-6">
+            <div className="grid md:grid-cols-4 gap-6 mt-16">
                 <div className="col-span-1">
                     <LeftSidebar />
                 </div>
