@@ -55,7 +55,7 @@ const RightSidebar = () => {
                 </div>
             </div>
 
-            {/* Q-Zone section */}
+            {/* Q-Zone */}
             <div className="bg-[#F3F3F3] mt-5 p-5 space-y-3">
                 <h3 className="text-2xl font-semibold">Q-Zone</h3>
 
