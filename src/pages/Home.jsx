@@ -19,7 +19,9 @@ const Home = () => {
             </div>
 
             {/* Navbar section */}
-            <Navbar />
+            <div className="pt-5">
+                <Navbar />
+            </div>
 
             {/* sidebar section */}
 
@@ -33,10 +35,10 @@ const Home = () => {
                     <div className="bg-[#05001DCC] py-16 px-9">
                         <h3 className="text-3xl text-white font-bold">Create an Amazing Newspaper</h3>
                         <p className="text-white mt-5">
-                        Discover thousands of options, easy to customize layouts, one-click to import demo and much more.
+                            Discover thousands of options, easy to customize layouts, one-click to import demo and much more.
                         </p>
                         <button className="btn bg-[#D72050] border-none text-xl text-white font-semibold mt-8">
-                        Learn More
+                            Learn More
                         </button>
                     </div>
                 </div>
