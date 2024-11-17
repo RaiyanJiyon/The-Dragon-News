@@ -13,10 +13,6 @@ const CenterSidebar = () => {
             .catch(error => console.error(error));
     }, []);
 
-    const handleReadMore = () => {
-
-    }
-
     return (
         <div>
             <h3 className="text-2xl font-semibold text-center">Dragon News Home</h3>
@@ -52,11 +48,10 @@ const CenterSidebar = () => {
                                     aNews.details.length > 200 ?
                                         <p className="text-[#706F6F]">
                                             {aNews.details.slice(0, 200)}...
-                                            <Link to={"/news-details"} onClick={handleReadMore} className="text-[#fb7651] font-bold">Read More</Link>
+                                            <Link to={`/news-details/${aNews._id}`} className="text-[#fb7651] font-bold">Read More</Link>
                                         </p>
                                         :
                                         <p className="text-[#706F6F]">{aNews.details}</p>
-
                                 }
                             </div>
                         </div>
