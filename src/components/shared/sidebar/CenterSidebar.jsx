@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { CiBookmark, CiShare2 } from "react-icons/ci";
 import { Link } from "react-router-dom";
-
+import StarRatings from "react-star-ratings";
+import { IoMdEye } from "react-icons/io";
 
 const CenterSidebar = () => {
     const [news, setNews] = useState([]);
@@ -53,7 +54,29 @@ const CenterSidebar = () => {
                                         :
                                         <p className="text-[#706F6F]">{aNews.details}</p>
                                 }
+
+                                <div className="divider"></div>
+
+                                <div className="flex justify-between items-center w-full">
+                                    <div className="flex items-center gap-2">
+                                        <StarRatings
+                                            rating={aNews.rating.number}
+                                            starRatedColor="#FF8C47"
+                                            // changeRating={this.changeRating}
+                                            numberOfStars={5}
+                                            name='rating'
+                                            starDimension="25px"
+                                            starSpacing="5px"
+                                        />
+                                        <p className="pt-1">{aNews.rating.number}</p>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <IoMdEye />
+                                        <p>{aNews.total_view}</p>
+                                    </div>
+                                </div>
                             </div>
+
                         </div>
                     ))
                 }
