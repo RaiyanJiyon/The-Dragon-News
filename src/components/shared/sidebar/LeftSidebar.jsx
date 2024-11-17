@@ -25,9 +25,9 @@ const LeftSidebar = () => {
                         categories.map(category => (
                             <NavLink
                                 key={category.id}
-                                to={category.path}
+                                to={`category/${category.id}`}
                                 className={({ isActive }) =>
-                                    isActive ? "bg-[#E7E7E7] text-xl font-semibold py-4 text-center" : "text-red-500 py-4 text-center"
+                                    isActive ? "bg-[#E7E7E7] text-xl font-semibold py-4 text-center" : "text-center"
                                 }
                             >
                                 {category.name}
