@@ -3,6 +3,7 @@ import Header from "../components/shared/Header"
 import Marquee from "react-fast-marquee";
 import LeftSidebar from "../components/shared/sidebar/LeftSidebar";
 import RightSidebar from "../components/shared/sidebar/RightSidebar";
+import CenterSidebar from "../components/shared/sidebar/CenterSidebar";
 
 const Home = () => {
     return (
@@ -29,7 +30,11 @@ const Home = () => {
                 <div className="col-span-1">
                     <LeftSidebar />
                 </div>
-                <div className="col-span-2"></div>
+                <div className="col-span-2">
+                    <div>
+                        <CenterSidebar />
+                    </div>
+                </div>
                 <div className="col-span-1 space-y-5">
                     <RightSidebar />
                     <div className="bg-[#05001DCC] py-16 px-9">
