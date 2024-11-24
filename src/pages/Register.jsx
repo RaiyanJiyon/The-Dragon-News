@@ -1,11 +1,15 @@
 import { useContext, useState } from "react";
 import Navbar from "../components/Navbar";
 import { AuthContext } from "../providers/AuthProviders";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Register = () => {
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const { createUser } = useContext(AuthContext);
     const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const validPassword = (password) => {
         const minLength = 8;
@@ -15,28 +19,40 @@ const Register = () => {
     const handleRegisterForm = (e) => {
         e.preventDefault();
 
-        const form = new FormData(e.currentTarget);
+        // Correctly reference the form element
+        const form = e.currentTarget;
 
-        const name = form.get("name");
-        const photoUrl = form.get("photoUrl");
-        const email = form.get("email");
-        const password = form.get("password");
+        const formData = new FormData(form);
 
-        console.log(name, photoUrl, email, password);
+        const name = formData.get("name");
+        const photoUrl = formData.get("photoUrl");
+        const email = formData.get("email");
+        const password = formData.get("password");
+        const acceptTerms = formData.get("acceptTerms");
+
+        if (!acceptTerms) {
+            setError("You must accept the Terms & Conditions.");
+            return;
+        }
 
         if (!validPassword(password)) {
             setError("Password must be at least 8 characters long.");
             return;
         }
 
+        setLoading(true);
         createUser(email, password)
             .then(userCredential => {
                 console.log(userCredential.user);
                 setError('');
+                form.reset(); // Reset the form fields
+                setLoading(false);
+                navigate(location.state ? location.state : "/");
             })
             .catch(error => {
                 console.log("ERROR - ", error.message);
                 setError(error.message);
+                setLoading(false);
             });
     };
 
@@ -81,12 +97,14 @@ const Register = () => {
                                 <div className="form-control mt-4">
                                     <label className="label cursor-pointer flex-row-reverse justify-end gap-3">
                                         <span className="label-text text-[#706F6F] font-semibold">Accept Term & Conditions</span>
-                                        <input type="checkbox" className="checkbox" />
+                                        <input type="checkbox" name="acceptTerms" className="checkbox" />
                                     </label>
                                 </div>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn bg-[#403F3F] text-white font-bold">Register</button>
+                                <button className="btn bg-[#403F3F] text-white font-bold" type="submit" disabled={loading}>
+                                    {loading ? 'Registering...' : 'Register'}
+                                </button>
                             </div>
                         </form>
                     </div>
