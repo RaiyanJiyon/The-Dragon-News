@@ -20,8 +20,6 @@ const About = () => {
                     <button className='btn bg-[#D72050] border-none text-xl text-white font-semibold mt-8'>Go Back Home</button>
                 </Link>
             </div>
-
-
         </div>
     );
 };
