@@ -19,23 +19,7 @@ const LeftSidebar = () => {
     return (
         <div>
             <div>
-                <h3 className="text-2xl font-semibold pb-5">All Category</h3>
-                <div className="grid grid-cols-1 gap-8 rounded-md">
-                    {
-                        categories.map(category => (
-                            <NavLink
-                                key={category.id}
-                                to={`category/${category.id}`}
-                                className={({ isActive }) =>
-                                    isActive ? "bg-[#E7E7E7] text-xl font-semibold py-4 text-center" : "text-center"
-                                }
-                            >
-                                {category.name}
-                            </NavLink>
-                        ))
-                    }
-                </div>
-                <div className="mt-8 space-y-6">
+                <div className="mt-14 space-y-6">
                     <NewsCard 
                         newsImg={newsImg1} 
                         title={"Bayern Slams Authorities Over Flight Delay to Club World Cup"} 
